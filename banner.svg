@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340" width="1200" height="340" role="img" aria-label="Ganireddy Sudhanshu Vipin — Web Development and Marketing">
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0"   stop-color="#0d100d"/>
+    <stop offset=".55" stop-color="#090B09"/>
+    <stop offset="1"   stop-color="#060806"/>
+  </linearGradient>
+  <radialGradient id="glow" cx=".72" cy=".28" r=".7">
+    <stop offset="0" stop-color="#c6d0bc" stop-opacity=".13"/>
+    <stop offset="1" stop-color="#c6d0bc" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="bank" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#c6d0bc" stop-opacity=".00"/>
+    <stop offset=".5" stop-color="#c6d0bc" stop-opacity=".26"/>
+    <stop offset="1" stop-color="#c6d0bc" stop-opacity=".00"/>
+  </linearGradient>
+  <filter id="soft"><feGaussianBlur stdDeviation="16"/></filter>
+  <filter id="softer"><feGaussianBlur stdDeviation="26"/></filter>
+
+  <!-- the name is revealed by sliding this mask, the same ink-flow idea as the site loader -->
+  <linearGradient id="wipe" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0"    stop-color="#fff"/>
+    <stop offset=".999" stop-color="#fff"/>
+    <stop offset="1"    stop-color="#000"/>
+    <animateTransform attributeName="gradientTransform" type="translate"
+      values="-1.15 0; 0.02 0; 0.02 0" keyTimes="0;.55;1" dur="7s" repeatCount="indefinite"/>
+  </linearGradient>
+  <mask id="reveal"><rect x="0" y="0" width="1200" height="340" fill="url(#wipe)"/></mask>
+
+  <style>
+    .drift  { animation: drift 26s linear infinite; }
+    .drift2 { animation: drift 34s linear infinite; animation-delay:-11s; }
+    .drift3 { animation: drift 44s linear infinite; animation-delay:-23s; }
+    @keyframes drift { from { transform: translateX(-360px); } to { transform: translateX(1320px); } }
+
+    .breathe { animation: breathe 9s ease-in-out infinite; }
+    @keyframes breathe { 0%,100%{opacity:.55} 50%{opacity:.95} }
+
+    .rule { stroke-dasharray: 1000; stroke-dashoffset: 1000;
+            animation: draw 7s cubic-bezier(.16,1,.3,1) infinite; }
+    @keyframes draw { 0%{stroke-dashoffset:1000} 45%,100%{stroke-dashoffset:0} }
+
+    .fade { opacity:0; animation: fade 7s ease-out infinite; }
+    @keyframes fade { 0%,18%{opacity:0} 42%,100%{opacity:.82} }
+    .fade-b { opacity:0; animation: fadeb 7s ease-out infinite; }
+    @keyframes fadeb { 0%,34%{opacity:0} 58%,100%{opacity:.6} }
+
+    text { font-family: Georgia, 'Times New Roman', serif; fill:#D9D7D4; }
+    .kick { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight:500; }
+  </style>
+</defs>
+
+<rect width="1200" height="340" fill="url(#sky)"/>
+<rect width="1200" height="340" fill="url(#glow)"/>
+
+<!-- treeline, far -->
+<g fill="#131813" opacity="1">
+  <path d="M0 340 L0 250 L17 230 L35 245 L47 232 L60 248 L72 218 L87 250 L100 221 L118 250 L133 232 L151 250 L164 227 L176 246 L194 233 L209 250 L223 225 L241 249 L254 216 L270 246 L284 231 L299 248 L312 217 L325 246 L337 215 L352 247 L370 210 L387 247 L406 223 L422 249 L436 212 L451 250 L467 218 L486 248 L505 225 L518 250 L536 229 L553 249 L572 221 L584 245 L597 210 L614 248 L631 215 L650 246 L669 232 L682 248 L701 212 L714 250 L730 214 L749 248 L767 213 L784 250 L803 223 L817 246 L830 219 L842 249 L858 230 L873 247 L891 219 L904 249 L923 222 L939 249 L957 217 L973 245 L991 223 L1009 249 L1023 232 L1037 249 L1052 213 L1067 250 L1086 216 L1100 248 L1116 234 L1130 247 L1147 215 L1164 249 L1176 220 L1194 247 L1200 222 L1200 250 L1200 340 Z"/>
+</g>
+<g fill="#0a0d0a" opacity="1"><path d="M0 340 L0 268 L19 231 L43 268 L64 244 L85 265 L105 243 L128 264 L146 243 L164 264 L184 229 L203 266 L221 244 L242 264 L266 242 L288 266 L311 231 L330 268 L355 232 L380 265 L402 244 L422 268 L445 223 L467 265 L487 230 L505 267 L528 242 L546 262 L568 226 L587 263 L609 230 L632 267 L655 222 L676 264 L699 226 L720 264 L741 221 L762 262 L786 223 L807 267 L832 235 L850 268 L872 231 L894 267 L917 232 L940 266 L959 239 L978 267 L1003 240 L1026 267 L1051 227 L1069 265 L1092 221 L1111 262 L1130 217 L1154 262 L1175 231 L1195 265 L1200 244 L1200 268 L1200 340 Z"/></g>
+
+<!-- fog banks, three depths crossing at different speeds -->
+<g filter="url(#softer)" class="breathe">
+  <ellipse class="drift"  cx="200" cy="228" rx="300" ry="46" fill="url(#bank)"/>
+  <ellipse class="drift3" cx="640" cy="268" rx="380" ry="40" fill="url(#bank)"/>
+</g>
+<g filter="url(#soft)" opacity=".8">
+  <ellipse class="drift2" cx="420" cy="250" rx="230" ry="30" fill="url(#bank)"/>
+  <ellipse class="drift"  cx="880" cy="290" rx="270" ry="26" fill="url(#bank)"/>
+</g>
+
+<!-- ground haze so the treeline dissolves rather than ends -->
+<rect x="0" y="252" width="1200" height="88" fill="#090B09" opacity=".55"/>
+<rect x="0" y="304" width="1200" height="36" fill="#090B09" opacity=".9"/>
+
+<g mask="url(#reveal)">
+  <text x="600" y="112" text-anchor="middle" class="kick"
+        font-size="19" letter-spacing="11" opacity=".78">GANIREDDY</text>
+  <text x="600" y="196" text-anchor="middle"
+        font-size="76" letter-spacing="1.5">Sudhanshu Vipin</text>
+</g>
+
+<line class="rule" x1="360" y1="228" x2="840" y2="228" stroke="#D9D7D4" stroke-opacity=".26" stroke-width="1"/>
+
+<text x="600" y="264" text-anchor="middle" class="kick fade"
+      font-size="14" letter-spacing="6.5" opacity=".82">WEB DEVELOPMENT &#183; MARKETING</text>
+<text x="600" y="300" text-anchor="middle" class="kick fade-b"
+      font-size="11.5" letter-spacing="4.5" opacity=".6">BITS PILANI, DUBAI CAMPUS</text>
+
+<text x="1146" y="58" text-anchor="middle" font-size="34" letter-spacing="2" opacity=".5">GSV</text>
+</svg>

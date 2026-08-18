@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 190" width="900" height="190" role="img" aria-label="A ship holds the left of the screen and fires at drones and hulks drifting in from the right">
+<defs>
+  <style>
+    /* the field drifts right to left at three depths */
+    .s1 { animation: fly 3.2s linear infinite; }
+    .s2 { animation: fly 5.0s linear infinite; }
+    .s3 { animation: fly 8.0s linear infinite; }
+    @keyframes fly { from { transform: translateX(0); } to { transform: translateX(-900px); } }
+
+    /* the ship holds station and bobs */
+    .ship { animation: hold 3.7s ease-in-out infinite; }
+    @keyframes hold { 0%,100%{transform:translateY(0)} 32%{transform:translateY(-26px)} 68%{transform:translateY(18px)} }
+
+    /* exhaust flicker */
+    .burn { animation: burn .16s steps(2,end) infinite; transform-origin: right center; }
+    @keyframes burn { 0%{transform:scaleX(1);opacity:.9} 50%{transform:scaleX(.6);opacity:.55} }
+
+    /* four shots, staggered, each crossing then restarting */
+    .b  { animation: bolt 1.05s linear infinite; }
+    .b2 { animation-delay:-.26s } .b3 { animation-delay:-.52s } .b4 { animation-delay:-.78s }
+    @keyframes bolt { from { transform: translateX(0); opacity:1 } 92%{opacity:1} to { transform: translateX(760px); opacity:0 } }
+
+    .spin  { animation: spin 9s linear infinite; transform-origin: center; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .pop { animation: pop 2.6s ease-out infinite; transform-origin: center; }
+    @keyframes pop { 0%{transform:scale(.2);opacity:.9} 26%{transform:scale(1.6);opacity:0} 100%{opacity:0} }
+
+    text { fill:#D9D7D4; }
+    .ui { font-family:'Helvetica Neue',Arial,sans-serif; font-weight:500; }
+  </style>
+  <linearGradient id="ex" x1="1" y1="0" x2="0" y2="0">
+    <stop offset="0"  stop-color="#c6d0bc" stop-opacity=".9"/>
+    <stop offset=".5" stop-color="#c6d0bc" stop-opacity=".34"/>
+    <stop offset="1"  stop-color="#c6d0bc" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="vig" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0"   stop-color="#090B09" stop-opacity="1"/>
+    <stop offset=".06" stop-color="#090B09" stop-opacity="0"/>
+    <stop offset=".94" stop-color="#090B09" stop-opacity="0"/>
+    <stop offset="1"   stop-color="#090B09" stop-opacity="1"/>
+  </linearGradient>
+
+  <!-- one drone, reused -->
+  <g id="drone" fill="none" stroke="#D9D7D4" stroke-opacity=".82" stroke-width="1.7" stroke-linejoin="round">
+    <path d="M-10 0 L7 -8 L3 0 L7 8 Z"/>
+  </g>
+  <!-- one hulk, reused -->
+  <g id="hulk" fill="none" stroke="#D9D7D4" stroke-opacity=".72" stroke-width="1.8" stroke-linejoin="round">
+    <path d="M15 0 L9 12 L-5 15 L-15 4 L-12 -9 L2 -15 L13 -9 Z"/>
+    <circle cx="0" cy="0" r="4.5" stroke-opacity=".4"/>
+  </g>
+</defs>
+
+<rect width="900" height="190" fill="#090B09"/>
+<line x1="0" y1="26" x2="900" y2="26" stroke="#D9D7D4" stroke-opacity=".13"/>
+
+<!-- starfield, three depths -->
+<g fill="#D9D7D4">
+  <g class="s3" opacity=".2">
+    <g id="far"><circle cx="80" cy="60" r="1"/><circle cx="240" cy="128" r="1"/><circle cx="390" cy="48" r="1"/>
+      <circle cx="520" cy="150" r="1"/><circle cx="660" cy="86" r="1"/><circle cx="810" cy="120" r="1"/>
+      <circle cx="160" cy="164" r="1"/><circle cx="700" cy="44" r="1"/></g>
+    <use href="#far" x="900"/>
+  </g>
+  <g class="s2" opacity=".34">
+    <g id="mid"><circle cx="130" cy="92" r="1.2"/><circle cx="300" cy="52" r="1.2"/><circle cx="470" cy="138" r="1.2"/>
+      <circle cx="610" cy="66" r="1.2"/><circle cx="760" cy="158" r="1.2"/><circle cx="860" cy="98" r="1.2"/></g>
+    <use href="#mid" x="900"/>
+  </g>
+  <g class="s1" opacity=".5">
+    <g id="near"><circle cx="200" cy="120" r="1.6"/><circle cx="430" cy="74" r="1.6"/>
+      <circle cx="640" cy="146" r="1.6"/><circle cx="880" cy="58" r="1.6"/></g>
+    <use href="#near" x="900"/>
+  </g>
+</g>
+
+<!-- the field -->
+<g class="s1">
+  <g id="wave">
+    <use href="#drone" x="420" y="58"/>
+    <use href="#drone" x="640" y="132"/>
+    <use href="#drone" x="880" y="88"/>
+    <g class="spin"><use href="#hulk" x="760" y="46"/></g>
+  </g>
+  <use href="#wave" x="900"/>
+</g>
+
+<!-- shots: fired from the nose, crossing the field -->
+<g class="ship">
+  <g stroke="#D9D7D4" stroke-width="2.1" stroke-linecap="round">
+    <g class="b">  <line x1="118" y1="95" x2="129" y2="95" stroke-opacity=".95"/></g>
+    <g class="b b2"><line x1="118" y1="95" x2="129" y2="95" stroke-opacity=".95"/></g>
+    <g class="b b3"><line x1="118" y1="95" x2="129" y2="95" stroke-opacity=".95"/></g>
+    <g class="b b4"><line x1="118" y1="95" x2="129" y2="95" stroke-opacity=".95"/></g>
+  </g>
+
+  <!-- ship -->
+  <g transform="translate(100,95)">
+    <g class="burn"><rect x="-30" y="-2.6" width="22" height="5.2" fill="url(#ex)" rx="2.6"/></g>
+    <path d="M16 0 L-11 11 L-6 0 L-11 -11 Z" fill="none" stroke="#D9D7D4" stroke-opacity=".95"
+          stroke-width="1.9" stroke-linejoin="round"/>
+    <line x1="-2.5" y1="0" x2="8.5" y2="0" stroke="#D9D7D4" stroke-opacity=".5" stroke-width="1.2"/>
+  </g>
+</g>
+
+<!-- a kill, on a loop -->
+<g class="pop" transform="translate(600,110)" fill="none" stroke="#D9D7D4" stroke-width="1.5">
+  <circle r="10"/>
+</g>
+
+<rect width="900" height="190" fill="url(#vig)"/>
+
+<text x="20" y="18" class="ui" font-size="10.5" letter-spacing="3.4" opacity=".45">HOLD THE LINE</text>
+<text x="880" y="18" text-anchor="end" class="ui" font-size="11" letter-spacing="2.6" opacity=".55">
+  0412<tspan opacity=".4"> / </tspan>1180
+</text>
+<text x="450" y="182" text-anchor="middle" class="ui"
+      font-size="9.5" letter-spacing="3.6" opacity=".38">ARROWS TO MOVE &#183; SPACE TO FIRE</text>
+</svg>
